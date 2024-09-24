@@ -1,7 +1,3 @@
 {
-    "functions": {
-      "api/location.ts": {
-        "regions": ["cdg1"]
-      }
-    }
-  }
+  "regions": ["cdg1"]
+}
