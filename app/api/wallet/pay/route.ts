@@ -6,13 +6,14 @@ export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const body = await req.json();
     const { id } = body;
+    console.log(process.env.WALLET_API_KEY, process.env.WALLET_SECRET_KEY);
     if (id) {
       const account = await db.withdraw.findUnique({
         where: {
           id,
         },
       });
-      
+
       const params = {
         coin: "BNB",
         amount: account?.amount,
