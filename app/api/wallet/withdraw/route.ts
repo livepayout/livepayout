@@ -17,10 +17,11 @@ export async function POST(req: Request) {
     }
 
     const user = await currentUser();
+    console.log(parseFloat(body.credits) / 100);
     await db.withdraw.create({
       data: {
         username: user?.username || "Nan",
-        amount: parseInt(body.credits) / 100,
+        amount: parseFloat(body.credits) / 100,
         address: body.address,
       },
     });

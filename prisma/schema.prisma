@@ -108,5 +108,5 @@ model Withdraw {
   id       String @id @default(uuid())
   username String @db.Text
   address  String @db.Text
-  amount   Int    @default(0)
+  amount   Decimal    @default(0)
 }

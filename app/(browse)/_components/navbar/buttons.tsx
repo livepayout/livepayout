@@ -79,7 +79,7 @@ const Buttons = ({ user }: { user: any }) => {
     setLoading(true);
     setOpen(true);
     try {
-    const res = await fetch("/api/wallet/status", {
+      const res = await fetch("/api/wallet/status", {
         method: "POST",
         body: JSON.stringify({
           id,
@@ -117,11 +117,12 @@ const Buttons = ({ user }: { user: any }) => {
     try {
       if (parseInt(credits) < 1)
         return toast.error("You can't withdraw less than 1 credit");
-      const usCreds = parseInt(user?.credits);
+      const usCreds = parseFloat(user?.credits);
       if (usCreds < parseInt(credits)) {
         return toast.error("You don't have enough credits to withdraw");
       }
-      const newCreds = user?.credits - parseInt(credits);
+      const newCreds = parseFloat(user?.credits) - parseFloat(credits);
+      console.log(newCreds)
       const res = await fetch("/api/wallet/withdraw", {
         method: "POST",
         body: JSON.stringify({
@@ -135,7 +136,7 @@ const Buttons = ({ user }: { user: any }) => {
       if (data.success) {
         toast.success(data.message);
         setAddress("");
-        setOpenWith(false)
+        setOpenWith(false);
       } else {
         toast.error(data.message);
       }
@@ -211,7 +212,6 @@ const Buttons = ({ user }: { user: any }) => {
 
   useEffect(() => {
     const sessionCookie = Cookies.get("__session");
-
 
     if (localStorage.getItem("paymentDetails")) {
       const paymentDetails = localStorage.getItem("paymentDetails");
@@ -465,8 +465,8 @@ const Buttons = ({ user }: { user: any }) => {
                                   as="h3"
                                   className="text-base font-semibold leading-6 mt-4 mb-2 text-center"
                                 >
-                                  For Withdrawn of {credits} USDT enter your BEP20 address
-                                  below
+                                  For Withdrawn of {parseInt(credits) / 100}{" "}
+                                  USDT enter your BEP20 address below
                                 </DialogTitle>
                                 <div className="mt-2 w-full flex gap-2 items-center">
                                   <Input
