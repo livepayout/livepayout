@@ -67,6 +67,7 @@ export const LiveVideo = ({ participant }: LiveVideoProps) => {
     return () => clearInterval(timing);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
 
   const toggleFullscreen = () => {
     if (isFullscreen) {
