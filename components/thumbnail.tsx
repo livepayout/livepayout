@@ -22,8 +22,10 @@ export const Thumbnail = ({
   if (!src) {
     content = (
       <div className=" flex flex-col items-center justify-center gap-y-4 h-full w-full transition-transform rounded-md">
-        <img
+        <Image
           src={fallback}
+          width={5000}
+          height={5000}
           alt="Thumbnail"
           className="w-1/2 object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
         />
