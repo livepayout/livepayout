@@ -61,6 +61,10 @@ export const ChatForm = ({
     try {
       const res = await fetch("/api/user", { method: "GET" });
       const data = await res.json();
+      if(!res.ok){
+        return;
+        // if(res?.status === 401) return toast.error('Login required');
+      }
       if (data.success) {
         setUser(data.user);
       } else {
