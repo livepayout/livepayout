@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 };
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Script from "next/script";
 export default function RootLayout({
   children,
 }: {
@@ -22,27 +23,42 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
-  
-        <html lang="en">
-          <head>
-          <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png"/>
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-          <link rel="manifest" href="/site.webmanifest"/>
-          <meta name="msapplication-TileColor" content="#da532c"/>
-          <meta name="theme-color" content="#ffffff"/>
-          </head>
-          <body className={inter.className}>
-            <ThemeProvider
-              attribute="class"
-              forcedTheme="dark"
-              storageKey="gamehub-theme"
-            >
-              <Toaster theme="light" position="bottom-center" />
-              {children}
-            </ThemeProvider>
-          </body>
-        </html>
+
+      <html lang="en">
+        <head>
+          <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#ffffff" />
+
+        </head>
+
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSR4YXKNWQ" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                 window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-ZSR4YXKNWQ');
+              `,
+          }}
+        ></script>
+        <body className={inter.className}>
+          <ThemeProvider
+            attribute="class"
+            forcedTheme="dark"
+            storageKey="gamehub-theme"
+          >
+            <Toaster theme="light" position="bottom-center" />
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
