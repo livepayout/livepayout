@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.livepayout.org
+
+# Sitemaps
+Sitemap: https://www.livepayout.org/sitemap.xml
