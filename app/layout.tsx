@@ -11,7 +11,8 @@ const inter = Inter({ subsets: ["latin"] });
 import "react-toastify/dist/ReactToastify.css";
 export const metadata: Metadata = {
   title: "Live Payout",
-  description: "An Streaming platform who pays you for being here ane doing streams.",
+  description:
+    "An Streaming platform who pays you for being here ane doing streams.",
 };
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -23,20 +24,35 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
-
       <html lang="en">
         <head>
-          <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
-
         </head>
 
         {/* <!-- Google tag (gtag.js) --> */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSR4YXKNWQ" />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZSR4YXKNWQ"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -48,6 +64,11 @@ export default function RootLayout({
               `,
           }}
         ></script>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9875272114341775"
+          crossOrigin="anonymous"
+        />
         <body className={inter.className}>
           <ThemeProvider
             attribute="class"
