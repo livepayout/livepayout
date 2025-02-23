@@ -21,7 +21,7 @@ type CustomStream = {
   isChatFollowersOnly: boolean;
   isLive: boolean;
   thumbnailUrl: string | null;
-  name: string;
+name: string;
 };
 
 type CustomUser = {

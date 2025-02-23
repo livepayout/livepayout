@@ -38,6 +38,7 @@ import { IoCaretBack } from "react-icons/io5";
 import Cookies from "js-cookie";
 
 const Buttons = ({ user }: { user: any }) => {
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [openWith, setOpenWith] = useState(false);
   const [show, setShow] = useState(false);
@@ -122,7 +123,7 @@ const Buttons = ({ user }: { user: any }) => {
         return toast.error("You don't have enough credits to withdraw");
       }
       const newCreds = parseFloat(user?.credits) - parseFloat(credits);
-      console.log(newCreds)
+      console.log(newCreds);
       const res = await fetch("/api/wallet/withdraw", {
         method: "POST",
         body: JSON.stringify({
@@ -507,6 +508,68 @@ const Buttons = ({ user }: { user: any }) => {
                               Cancel
                             </Button>
                           </div>
+                        </>
+                      )}
+                    </DialogPanel>
+                  </TransitionChild>
+                </div>
+              </div>
+            </Dialog>
+          </Transition>
+          <Transition show={dialogOpen}>
+            <Dialog className="relative z-10" onClose={setDialogOpen}>
+              <TransitionChild
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+              </TransitionChild>
+
+              <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+                <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                  <TransitionChild
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    enterTo="opacity-100 translate-y-0 sm:scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                    leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  >
+                    <DialogPanel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                      {loading ? (
+                        <div className="w-full h-48 text-center flex items-center">
+                          <span className="loader mb-4 block mx-auto"></span>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="bg-[#212121] text-center px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-white">
+                            <div className="text-center flex flex-col items-center justify-center">
+                              <div className="mt-3 flex flex-col items-center justify-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <DialogTitle
+                                  as="h3"
+                                  className="text-base font-semibold leading-6 mt-4 mb-12 text-center"
+                                >
+                                  LivePayout Token
+                                </DialogTitle>
+                                <div className="mt-2 w-full flex gap-2 items-center">
+                                  <label htmlFor="">Contract Address</label>
+                                  <Input
+                                    value={'hello'}
+                                    // onChange={(e) => setAddress(e.target.value)}
+                                    placeholder="0x659c4338b23g315c946ab5d0a85d95fa97ff9d45"
+                                    type="text"
+                                    className="rounded border border-transparent focus:border-gray-400 bg-[#2d2d2d] text-white  mb-4 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
+                                  />
+                                </div>
+                              </div>
+                              <p className="text-zinc-600">Coming Soon</p>
+                            </div>
+                          </div>
+                          
                         </>
                       )}
                     </DialogPanel>

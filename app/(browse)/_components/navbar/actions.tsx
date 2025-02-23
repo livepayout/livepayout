@@ -5,6 +5,7 @@ import { SignInButton, UserButton, currentUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
 import Buttons from "./buttons";
+import DialogHome from "./dialog";
 export const Actions = async () => {
   const user = await currentUser();
   let userdata = null;
@@ -19,9 +20,14 @@ export const Actions = async () => {
   return (
     <div className="flex items-center justify-end gap-x-2 ml-4 lg:ml-0">
       {user && <Buttons user={userdata} />}
+      <DialogHome />
       {!user && (
         <SignInButton>
-          <Button size="sm" variant="primary" className="bg-[#C181FF] hover:bg-[#a552ff] rounded-sm">
+          <Button
+            size="sm"
+            variant="primary"
+            className="bg-[#C181FF] hover:bg-[#a552ff] rounded-sm"
+          >
             Login
           </Button>
         </SignInButton>
