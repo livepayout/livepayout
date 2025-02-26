@@ -14,13 +14,17 @@ export const Results = async () => {
   return (
     <div className="pb-[64px]">
       {user ? (
-        <div className="div w-3/4 mx-auto h-[40vh] flex items-center justify-center mb-12">
+        <div className="div w-3/4 mx-auto min-h-max max-h-[40vh] flex items-center justify-center mb-12">
           <LiveVideoPlayer user={user?.user} />
         </div>
       ) : (
         ""
       )}
-      <h2 className="text-lg font-semibold mb-4">
+      <h2
+        className={`${
+          lives.length > 0 ? "mt-6 md:mt-16" : ""
+        } text-lg font-semibold mb-4`}
+      >
         Streams we think you&apos;ll like
       </h2>
       {data.length === 0 && (
