@@ -8,7 +8,6 @@ import { LiveVideoPlayer } from "@/components/live-video";
 
 export const Results = async () => {
   const data = await getStreams();
-  console.log(data);
   const lives = data.filter((st) => st.isLive);
   const user = lives[0];
   return (
