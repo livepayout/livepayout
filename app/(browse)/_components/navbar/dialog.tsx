@@ -9,13 +9,16 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
+import Image from "next/image";
 
 const DialogHome = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
     <div className="relative">
-      <button onClick={() => setDialogOpen(true)}>Trigger</button>
+      <button className="p-1 mt-1" onClick={() => setDialogOpen(true)}>
+        <Image src="/cap.png" width={20} height={20} alt="Trigger modal" />
+      </button>
       <Transition show={dialogOpen}>
         <Dialog className="relative z-10" onClose={setDialogOpen}>
           <TransitionChild
@@ -29,7 +32,7 @@ const DialogHome = () => {
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </TransitionChild>
 
-          <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="fixed inset-0 z-10 left-20 lg:w-screen w-4/5 bottom-52 sm:bottom-16  overflow-y-auto">
             <div className="flex min-h-full items-end justify-center p-2 sm:items-center sm:p-0">
               <TransitionChild
                 enter="ease-out duration-300"
@@ -48,17 +51,23 @@ const DialogHome = () => {
                       >
                         LivePayout Token
                       </DialogTitle>
-                      <div className="mt-2 mb-8 w-full gap-2 items-center">
+                      <div className="flex justify-between mt-2 mb-8 w-full gap-2 items-center">
                         <label htmlFor="" className="text-white/70 block mb-2">
-                          Contract Address
+                          Coming Soon...
                         </label>
-                        <Input
+                        <Image
+                          src="/cap.png"
+                          width={20}
+                          height={20}
+                          alt="Trigger modal"
+                        />
+                        {/* <Input
                           value={""}
                           // onChange={(e) => setAddress(e.target.value)}
-                          placeholder="0x659c4338b23g315c946ab5d0a85d95fa97ff9d45"
+                          placeholder="Coming"
                           type="text"
                           className="rounded border border-transparent focus:border-gray-400 bg-[#2d2d2d] text-white  mb-4 focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
-                        />
+                        /> */}
                       </div>
                       <p className="text-white/50 mb-24 text-sm">
                         Coming Soon...

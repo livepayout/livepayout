@@ -85,15 +85,15 @@ export default function RootLayout({
               {children}
             </ThemeProvider>
           </Suspense>
-          <div className="flex justify-between bottom-0 z-[50000] items-center fixed w-full left-0 bg-purple-300 p-4">
+          <div className="flex flex-col md:flex-row items-start justify-between bottom-0 z-[50000] gap-4 md:items-center fixed w-full left-0 bg-purple-300 p-4">
             <p className="flex items-center gap-2">
               {" "}
               <IoNotifications className="text-xl"/>
-              <span className="text-zinc-600">
+              <span className="text-zinc-600 text-sm md:text-base ">
                 Be part of our community, Join our social networks
               </span>
             </p>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 md:mx-0 mx-auto">
               <BsTwitterX className="bg-black/80 text-white p-1 text-2xl rounded-sm" />
               <FaTwitter className="bg-black/80 text-white p-1 text-2xl rounded-sm" />
               <FaFacebook className="bg-black/80 text-white p-1 text-2xl rounded-sm" />
