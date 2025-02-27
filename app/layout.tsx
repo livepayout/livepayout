@@ -22,6 +22,7 @@ import { IoNotifications } from "react-icons/io5";
 import { FaFacebook, FaTelegram, FaTwitch, FaTwitter } from "react-icons/fa";
 import { X } from "lucide-react";
 import { BsTwitterX } from "react-icons/bs";
+import Link from "next/link";
 export default function RootLayout({
   children,
 }: {
@@ -88,15 +89,18 @@ export default function RootLayout({
           <div className="flex flex-col md:flex-row items-start justify-between bottom-0 z-[50000] gap-4 md:items-center fixed w-full left-0 bg-purple-300 p-4">
             <p className="flex items-center gap-2">
               {" "}
-              <IoNotifications className="text-xl"/>
+              <IoNotifications className="text-xl" />
               <span className="text-zinc-600 text-sm md:text-base ">
                 Be part of our community, Join our social networks
               </span>
             </p>
             <div className="flex items-center gap-2 md:mx-0 mx-auto">
-              <BsTwitterX className="bg-black/80 text-white p-1 text-2xl rounded-sm" />
-              <FaTwitter className="bg-black/80 text-white p-1 text-2xl rounded-sm" />
-              <FaFacebook className="bg-black/80 text-white p-1 text-2xl rounded-sm" />
+              <Link href="https://twitter.com/Livepayout">
+                <BsTwitterX className="bg-black/80 text-white p-1 text-2xl rounded-sm" />
+              </Link>
+              <Link href="https://t.me/livepayout_org">
+                <FaTelegram className="bg-black/80 text-white p-1 text-2xl rounded-sm" />
+              </Link>
             </div>
           </div>
         </body>
