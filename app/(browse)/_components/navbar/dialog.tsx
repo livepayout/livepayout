@@ -16,7 +16,7 @@ const DialogHome = () => {
 
   return (
     <div className="relative">
-      <button className="p-1 mt-2 w-24 h-24" onClick={() => setDialogOpen(true)}>
+      <button className="p-1 mt-2 w-max" onClick={() => setDialogOpen(true)}>
         <Image src="/cap.png" width={20} height={20} alt="Trigger modal" />
       </button>
       <Transition show={dialogOpen}>
