@@ -2,7 +2,7 @@
 
 import { LiveKitRoom } from "@livekit/components-react";
 import { useViewerToken } from "@/hooks/use-viewer-token";
-import { Video, VideoSkeleton } from "./video";
+import { Video, VideoThumbnailSkeleton } from "./video";
 
 type CustomStream = {
   id: string;
@@ -26,10 +26,13 @@ interface LiveVideoPlayerProps {
   classes?: string;
 }
 
-export const LiveVideoPlayer = ({ user, classes }: LiveVideoPlayerProps) => {
+export const LiveVideoPlayerThumbnail = ({
+  user,
+  classes,
+}: LiveVideoPlayerProps) => {
   const { token, name, identity } = useViewerToken(user.id);
   if (!token || !name || !identity) {
-    return <LiveVideoPlayerSkeleton />;
+    return <LiveVideoPlayerThumbnailSkeleton />;
   }
   return (
     <LiveKitRoom
@@ -48,10 +51,10 @@ export const LiveVideoPlayer = ({ user, classes }: LiveVideoPlayerProps) => {
   );
 };
 
-export const LiveVideoPlayerSkeleton = () => {
+export const LiveVideoPlayerThumbnailSkeleton = () => {
   return (
     <div className="w-full pb-10">
-      <VideoSkeleton />
+      <VideoThumbnailSkeleton />
     </div>
   );
 };

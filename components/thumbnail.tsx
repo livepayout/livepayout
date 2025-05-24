@@ -5,6 +5,7 @@ import { LiveBadge } from "@/components/live-badge";
 import { UserAvatar } from "@/components/user-avatar";
 import { LiveVideoPlayer } from "./live-video";
 import { User } from "@prisma/client";
+import { LiveVideoPlayerThumbnail } from "./live-player";
 
 interface ThumbnailProps {
   src: string | null;
@@ -19,24 +20,27 @@ export const Thumbnail = ({
   fallback,
   isLive,
   username,
-  user
+  user,
 }: ThumbnailProps) => {
   let content;
 
   if (!src) {
     content = (
       <div className=" flex flex-col items-center justify-center gap-y-4 h-full w-full transition-transform rounded-md">
-        <LiveVideoPlayer
-          user={user}
-          classes="w-1/2 object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
-        />
-        {/* <Image
-          src={fallback}
-          width={5000}
-          height={5000}
-          alt="Thumbnail"
-          className="w-1/2 object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
-        /> */}
+        {isLive ? (
+          <LiveVideoPlayerThumbnail
+            user={user}
+            classes="!w-1/2 object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
+          />
+        ) : (
+          <Image
+            src={fallback}
+            width={5000}
+            height={5000}
+            alt="Thumbnail"
+            className="w-1/2 object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
+          />
+        )}
         {/* <UserAvatar
           size="lg"
           showBadge
@@ -47,7 +51,12 @@ export const Thumbnail = ({
       </div>
     );
   } else {
-    content = (
+    content = isLive ? (
+      <LiveVideoPlayerThumbnail
+        user={user}
+        classes="w-1/2 object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
+      />
+    ) : (
       <Image
         src={src}
         fill
