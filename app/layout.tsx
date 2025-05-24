@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 export const metadata: Metadata = {
   title: "Live Payout",
   description:
-    "An Streaming platform who pays you for being here ane doing streams.",
+    "An Streaming platform who pays you for being in the platform and also for doing streams.",
 };
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";

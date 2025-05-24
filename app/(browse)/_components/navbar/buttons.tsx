@@ -239,7 +239,7 @@ const Buttons = ({ user }: { user: any }) => {
     <div className="relative w-1/2">
       <button
         onClick={handleStyle}
-        className="flex items-center gap-x-.5 mr-2 border-[#2D2E35]"
+        className="flex items-center gap-x-1 border-[#2D2E35] mr-8"
       >
         <span>{user?.credits}</span>
         {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -102,7 +102,7 @@ export const Search = () => {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="ml-auto block w-max mt-1 sm:hidden"
+        className="ml-auto block w-max mt-0 sm:hidden"
       >
         <SearchIcon className="h-6 w-6 text-muted-foreground" />
       </button>
