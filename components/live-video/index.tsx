@@ -23,9 +23,10 @@ type CustomUser = {
 
 interface LiveVideoPlayerProps {
   user: CustomUser;
+  classes?:string;
 }
 
-export const LiveVideoPlayer = ({ user }: LiveVideoPlayerProps) => {
+export const LiveVideoPlayer = ({ user,classes }: LiveVideoPlayerProps) => {
   const { token, name, identity } = useViewerToken(user.id);
   if (!token || !name || !identity) {
     return <LiveVideoPlayerSkeleton />;
@@ -37,7 +38,7 @@ export const LiveVideoPlayer = ({ user }: LiveVideoPlayerProps) => {
       className={"w-full"}
     >
       <div className="w-full pb-10">
-        <Video hostName={user.username} hostIdentity={user.id} />
+        <Video classes={classes} hostName={user.username} hostIdentity={user.id} />
       </div>
     </LiveKitRoom>
   );

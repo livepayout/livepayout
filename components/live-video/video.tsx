@@ -16,9 +16,11 @@ import { LiveVideo } from "./live-video";
 interface VideoProps {
   hostName: string;
   hostIdentity: string;
+  classes?:string;
 };
 
 export const Video = ({
+  classes,
   hostName,
   hostIdentity,
 }: VideoProps) => {
@@ -36,7 +38,7 @@ export const Video = ({
   } else if (!participant || tracks.length === 0) {
     content = <LoadingVideo label={connectionState} />
   } else {
-    content = <LiveVideo participant={participant} />
+    content = <LiveVideo classes={classes} participant={participant} />
   };
 
   return (

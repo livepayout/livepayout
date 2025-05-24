@@ -404,3 +404,7 @@ body,
     width: 85% !important;
   }
 }
+
+.cl-logoBox {
+  margin: auto;
+}

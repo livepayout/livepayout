@@ -7,11 +7,12 @@ import { useEventListener } from "usehooks-ts";
 
 interface LiveVideoProps {
   participant: Participant;
+  classes?: string;
 }
 
 import { useChat } from "@livekit/components-react";
 import { toast } from "sonner";
-export const LiveVideo = ({ participant }: LiveVideoProps) => {
+export const LiveVideo = ({ participant, classes }: LiveVideoProps) => {
   const { send } = useChat();
   const onSubmit = (value: string) => {
     if (!send) return;
@@ -51,8 +52,8 @@ export const LiveVideo = ({ participant }: LiveVideoProps) => {
     });
     const data = await res.json();
     if (data?.success) {
-      toast.success("You received 1 Livs for being in the platform", {
-        duration: 500,
+      toast.success("You received 1 Liv for being in the platform", {
+        duration: 1500,
       });
     }
   };
@@ -90,7 +91,7 @@ export const LiveVideo = ({ participant }: LiveVideoProps) => {
 
   return (
     <div ref={wrapperRef} className="relative h-full flex">
-      <video ref={videoRef} width="100%" />
+      <video ref={videoRef} width="100%" className={classes} />
       <div className="absolute top-0 h-full w-full opacity-0 hover:opacity-100 hover:transition-all">
         <div className="absolute bottom-0 flex h-14 w-full items-center justify-between bg-gradient-to-r from-neutral-900 px-4"></div>
       </div>

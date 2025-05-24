@@ -54,8 +54,8 @@ export const LiveVideo = ({ participant }: LiveVideoProps) => {
     });
     const data = await res.json();
     if (data?.success) {
-      toast.success("You received 1 Livs for being in the platform", {
-        duration: 500,
+      toast.success("You received 1 Liv for being in the platform", {
+        duration: 1500,
       });
     }
   };

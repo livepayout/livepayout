@@ -236,17 +236,15 @@ const Buttons = ({ user }: { user: any }) => {
     }
   }, []);
   return (
-    <div className="relative">
-      <Button
+    <div className="relative w-1/2">
+      <button
         onClick={handleStyle}
-        variant={"outline"}
-        size={"sm"}
-        className="flex items-center gap-x-1 mr-2"
+        className="flex items-center gap-x-.5 mr-2 border-[#2D2E35]"
       >
         <span>{user?.credits}</span>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/LV.png" width={22} alt="" />
-      </Button>
+        <img src="/LV.png" width={400} height={400} className="w-[24px]" alt="" />
+      </button>
       {show && (
         <div
           className={`absolute ${open && "opacity-0"} bg-gray-600 w-28`}
