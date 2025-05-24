@@ -3,6 +3,7 @@
 import { LiveKitRoom } from "@livekit/components-react";
 import { useViewerToken } from "@/hooks/use-viewer-token";
 import { Video, VideoThumbnailSkeleton } from "./video";
+import { User } from "@prisma/client";
 
 type CustomStream = {
   id: string;
@@ -14,15 +15,9 @@ type CustomStream = {
   name: string;
 };
 
-type CustomUser = {
-  id: string;
-  username: string;
-  bio: string | null;
-  imageUrl: string;
-};
 
 interface LiveVideoPlayerProps {
-  user: CustomUser;
+  user: User;
   classes?: string;
 }
 
