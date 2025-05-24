@@ -86,7 +86,7 @@ export default function RootLayout({
               {children}
             </ThemeProvider>
           </Suspense>
-          <div className=" flex-col md:flex-row items-start justify-between bottom-0 z-[50000] gap-4 md:items-center absolute hidden w-full left-0 bg-purple-300 p-4">
+          <div className=" flex-col md:flex-row items-start justify-between bottom-0 z-[50000] gap-4 md:items-center absolute flex w-full left-0 bg-purple-300 p-4">
             <p className="flex items-center gap-2">
               {" "}
               <IoNotifications className="text-xl" />
