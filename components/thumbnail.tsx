@@ -30,7 +30,7 @@ export const Thumbnail = ({
         {isLive ? (
           <LiveVideoPlayerThumbnail
             user={user}
-            classes="!w-1/2 object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
+            classes="w-full object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
           />
         ) : (
           <Image
@@ -54,7 +54,7 @@ export const Thumbnail = ({
     content = isLive ? (
       <LiveVideoPlayerThumbnail
         user={user}
-        classes="w-1/2 object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
+        classes="w-full object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
       />
     ) : (
       <Image
