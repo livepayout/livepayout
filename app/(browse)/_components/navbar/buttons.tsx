@@ -243,7 +243,7 @@ const Buttons = ({ user }: { user: any }) => {
       >
         <span>{user?.credits}</span>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/LV.png" width={400} height={400} className="w-[24px]" alt="" />
+        <img src="/LV.png" width={24} alt="" />
       </button>
       {show && (
         <div
@@ -556,7 +556,7 @@ const Buttons = ({ user }: { user: any }) => {
                                 <div className="mt-2 w-full flex gap-2 items-center">
                                   <label htmlFor="">Contract Address</label>
                                   <Input
-                                    value={'hello'}
+                                    value={"hello"}
                                     // onChange={(e) => setAddress(e.target.value)}
                                     placeholder="0x659c4338b23g315c946ab5d0a85d95fa97ff9d45"
                                     type="text"
@@ -567,7 +567,6 @@ const Buttons = ({ user }: { user: any }) => {
                               <p className="text-zinc-600">Coming Soon</p>
                             </div>
                           </div>
-                          
                         </>
                       )}
                     </DialogPanel>
