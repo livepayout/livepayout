@@ -16,7 +16,7 @@ export const Results = async () => {
     <div className="pb-[64px]">
       {user ? (
         <div className="div w-3/5 mx-auto min-h-max max-h-[30vh] flex items-center justify-center mb-8">
-          <LiveVideoPlayer user={user?.user} classes={`border-2 border-[#2D2E35] rounded-lg`}/>
+          <LiveVideoPlayer user={user?.user} classes={`border-[2px] border-[#2D2E35] rounded-lg`}/>
         </div>
       ) : (
         ""
