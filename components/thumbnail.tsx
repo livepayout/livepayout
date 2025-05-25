@@ -33,13 +33,14 @@ export const Thumbnail = ({
             classes="w-full object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
           />
         ) : (
-          <Image
-            src={fallback}
-            width={5000}
-            height={5000}
-            alt="Thumbnail"
-            className="w-1/2 object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
-          />
+          <div className="w-full sm:w-1/2 aspect-[3/2]">
+            <Image
+              src={fallback}
+              fill
+              alt="Thumbnail"
+              className="object-fill transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
+            />
+          </div>
         )}
         {/* <UserAvatar
           size="lg"
@@ -57,12 +58,14 @@ export const Thumbnail = ({
         classes="w-full object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
       />
     ) : (
-      <Image
-        src={src}
-        fill
-        alt="Thumbnail"
-        className="object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
-      />
+      <div className="w-full sm:w-1/2 aspect-[3/2]">
+        <Image
+          src={src}
+          fill
+          alt="Thumbnail"
+          className="object-fill transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
+        />
+      </div>
     );
   }
   return (

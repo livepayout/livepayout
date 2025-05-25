@@ -64,7 +64,7 @@ export const Search = () => {
           type="submit"
           size="sm"
           variant="secondary"
-          className="rounded-l-none mr-2"
+          className="rounded-l-none mr-2 h-[40px]"
         >
           <SearchIcon className="h-5 w-5 text-muted-foreground" />
         </Button>
@@ -75,13 +75,13 @@ export const Search = () => {
         onSubmit={onSubmit}
         className={`transition-all duration-400 ${
           open ? "translate-y-0" : "-translate-y-40"
-        } sm:hidden fixed top-4 w-10/12 flex items-center z-40`}
+        } sm:hidden fixed top-4 w-8/12 md:w-10/12 flex items-center z-40`}
       >
         <Input
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="Search"
-          className="flex-1 block rounded focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
+          className="flex-1 block rounded-r-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0"
         />
 
         <X
@@ -93,7 +93,7 @@ export const Search = () => {
           type={`submit`}
           size="sm"
           variant="secondary"
-          className="rounded-l-none mr-2"
+          className="rounded-l-none mr-2 h-[40px]"
         >
           <SearchIcon className="h-6 w-6 text-muted-foreground" />
         </Button>
@@ -102,9 +102,9 @@ export const Search = () => {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="ml-auto block w-max mt-0 sm:hidden"
+        className="ml-auto block w-max mt-0 sm:hidden h-[40px]"
       >
-        <SearchIcon className="h-6 w-6 text-muted-foreground" />
+        <SearchIcon className="h-6 w-6 text-muted-foreground " />
       </button>
     </div>
   );
