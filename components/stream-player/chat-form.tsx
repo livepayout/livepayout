@@ -111,7 +111,7 @@ export const ChatForm = ({
       setTimeout(() => {
         setIsDelayBlocked(false);
         if (!send) return;
-        send(`${user.imageUrl}img-livepayout-img${value}`);
+        send(`${user.imageUrl ? user.imageUrl :'/user.png'}img-livepayout-img${value}`);
 
         onChange("");
       }, 3000);
@@ -121,7 +121,7 @@ export const ChatForm = ({
         const isSent = await handleChatCommand(value);
         if (isSent) {
           if (!send) return;
-          send(`${user.imageUrl}img-livepayout-img${value}`);
+          send(`${user.imageUrl ? user.imageUrl :'/user.png'}img-livepayout-img${value}`);
 
           onChange("");
         }
@@ -137,7 +137,7 @@ export const ChatForm = ({
           return;
         } else {
           if (!send) return;
-          send(`${user.imageUrl}img-livepayout-img${value}`);
+          send(`${user.imageUrl ? user.imageUrl :'/user.png'}img-livepayout-img${value}`);
 
           onChange("");
         }

@@ -26,8 +26,8 @@ export const Results = async () => {
       )}
       <h2
         className={`${
-          lives.length > 0 ? "mt-6 md:mt-16" : ""
-        } text-lg font-semibold mb-4 text-primary`}
+          lives.length > 0 ? "mt-4 md:mt-8" : ""
+        } text-lg font-semibold mb-8 text-primary`}
       >
         Live on Live Payout
       </h2>
