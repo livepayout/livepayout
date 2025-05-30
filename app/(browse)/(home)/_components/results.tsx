@@ -11,17 +11,27 @@ export const Results = async () => {
   const lives = data.filter((st) => st.isLive);
   const notLives = data.filter((st) => !st.isLive);
   const user = lives[0];
-  
+
   return (
     <div className="pb-[64px]">
       {user ? (
         <div className="div w-full lg:w-3/5 mx-auto min-h-max max-h-[30vh] flex items-center justify-center mb-8">
-          <LiveVideoPlayer user={user?.user} classes={`border-[2px] border-[#2D2E35] rounded-lg`}/>
+          <LiveVideoPlayer
+            user={user?.user}
+            classes={`border-[2px] border-[#2D2E35] rounded-lg`}
+          />
         </div>
       ) : (
         ""
       )}
-       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 pb-4 border-b border-[#2D2E35]">
+      <h2
+        className={`${
+          lives.length > 0 ? "mt-6 md:mt-16" : ""
+        } text-lg font-semibold mb-4 text-primary`}
+      >
+        Live on Live Payout
+      </h2>
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 pb-4 border-b border-[#2D2E35]">
         {lives.map((result) => (
           <ResultCard key={result.id} data={result} />
         ))}
