@@ -27,21 +27,14 @@ export const Thumbnail = ({
   if (!src) {
     content = (
       <div className=" flex flex-col items-center justify-center gap-y-4 h-full w-full transition-transform rounded-md">
-        {isLive ? (
-          <LiveVideoPlayerThumbnail
-            user={user}
-            classes="w-full object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
+        <div className="w-full sm:w-1/2 aspect-[3/2]">
+          <Image
+            src={fallback}
+            fill
+            alt="Thumbnail"
+            className="object-fill transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
           />
-        ) : (
-          <div className="w-full sm:w-1/2 aspect-[3/2]">
-            <Image
-              src={fallback}
-              fill
-              alt="Thumbnail"
-              className="object-fill transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
-            />
-          </div>
-        )}
+        </div>
         {/* <UserAvatar
           size="lg"
           showBadge
@@ -52,12 +45,7 @@ export const Thumbnail = ({
       </div>
     );
   } else {
-    content = isLive ? (
-      <LiveVideoPlayerThumbnail
-        user={user}
-        classes="w-full object-cover transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md"
-      />
-    ) : (
+    content = (
       <div className="w-full sm:w-1/2 aspect-[3/2]">
         <Image
           src={src}

@@ -75,6 +75,7 @@ export const LiveVideoThumbnail = ({
 
       // Optional: Prevent autoplay
       videoRef.current.pause();
+      videoRef.current.autoplay = false
     }
   }, []);
   return (
