@@ -14,6 +14,7 @@ import { toast } from "sonner";
 import { BsFillSendFill } from "react-icons/bs";
 import { SlOptions } from "react-icons/sl";
 import { set } from "date-fns";
+import { toast } from "sonner";
 
 interface ChatFormProps {
   onSubmit: () => void;
@@ -61,7 +62,7 @@ export const ChatForm = ({
     try {
       const res = await fetch("/api/user", { method: "GET" });
       const data = await res.json();
-      if(!res.ok){
+      if (!res.ok) {
         return;
       }
       if (data.success) {
@@ -111,7 +112,11 @@ export const ChatForm = ({
       setTimeout(() => {
         setIsDelayBlocked(false);
         if (!send) return;
-        send(`${user.imageUrl ? user.imageUrl :'/user.png'}img-livepayout-img${value}`);
+        send(
+          `${
+            user.imageUrl ? user.imageUrl : "/user.png"
+          }img-livepayout-img${value}`
+        );
 
         onChange("");
       }, 3000);
@@ -121,7 +126,11 @@ export const ChatForm = ({
         const isSent = await handleChatCommand(value);
         if (isSent) {
           if (!send) return;
-          send(`${user.imageUrl ? user.imageUrl :'/user.png'}img-livepayout-img${value}`);
+          send(
+            `${
+              user.imageUrl ? user.imageUrl : "/user.png"
+            }img-livepayout-img${value}`
+          );
 
           onChange("");
         }
@@ -137,7 +146,11 @@ export const ChatForm = ({
           return;
         } else {
           if (!send) return;
-          send(`${user.imageUrl ? user.imageUrl :'/user.png'}img-livepayout-img${value}`);
+          send(
+            `${
+              user.imageUrl ? user.imageUrl : "/user.png"
+            }img-livepayout-img${value}`
+          );
 
           onChange("");
         }
@@ -327,6 +340,7 @@ export const ChatForm = ({
           </Button>
           <Button
             onClick={() => {
+              if (!user) return toast.success("You need to login!");
               if (!showDropDown) getUser();
               setShowDropDown(!showDropDown);
             }}
@@ -422,7 +436,7 @@ export const ChatForm = ({
                       sticker === 0 && "bg-gray-700"
                     } hover:bg-gray-700 transition-all duration-200  rounded-sm py-1 px-4`}
                   >
-                    <Image width={55} height={55} src="/btc.png" alt=""/>
+                    <Image width={55} height={55} src="/btc.png" alt="" />
                     <span>{user?.coins}</span>
                   </button>
                 </div>
