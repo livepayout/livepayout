@@ -10,11 +10,11 @@ import { FaTimes } from "react-icons/fa";
 import { ChatInfo } from "./chat-info";
 import Image from "next/image";
 import { useChat } from "@livekit/components-react";
-import { toast } from "sonner";
 import { BsFillSendFill } from "react-icons/bs";
 import { SlOptions } from "react-icons/sl";
 import { set } from "date-fns";
 import { toast } from "sonner";
+import { currentUser, useAuth } from "@clerk/nextjs";
 
 interface ChatFormProps {
   onSubmit: () => void;
@@ -35,6 +35,8 @@ export const ChatForm = ({
   isFollowing,
   isDelayed,
 }: ChatFormProps) => {
+  // const currentUser = await currentUser();
+  const { isSignedIn } = useAuth();
   const [isDelayBlocked, setIsDelayBlocked] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
   const { send } = useChat();
@@ -340,7 +342,7 @@ export const ChatForm = ({
           </Button>
           <Button
             onClick={() => {
-              if (!user) return toast.success("You need to login!");
+              if (!isSignedIn) return toast.success("You need to login!");
               if (!showDropDown) getUser();
               setShowDropDown(!showDropDown);
             }}
